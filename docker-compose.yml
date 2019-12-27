@@ -1,0 +1,40 @@
+version: '3.2'
+services:
+
+  user-app:
+   image: ayushiiii/moviecruiser:authenticationService-app-image
+   restart: always
+   network_mode: host
+   ports:
+     - 7878:7878
+   expose:
+     - 7878
+   depends_on:
+     - db1-mysql
+     
+  movie-app:
+   image: ayushiiii/moviecruiser:movie-app-image
+   restart: always
+   network_mode: host
+   ports:
+     - 9898:9898
+   expose:
+     - 9898
+   depends_on:
+     - db1-mysql
+
+  db1-mysql:
+   image: mysql:5.5
+   network_mode: host
+   ports:
+     - "3306:3306"
+   environment:
+     MYSQL_ROOT_PASSWORD: root
+     MYSQL_DATABASE: db1
+     
+  angular:
+    image: ayushiiii/moviecruiser:angular-app-image
+    network_mode: host
+    container_name: angular-docker
+    ports:
+      - 4200:4200

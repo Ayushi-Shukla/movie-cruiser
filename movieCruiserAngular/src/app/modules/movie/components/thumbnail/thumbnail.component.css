@@ -1,0 +1,23 @@
+.movie-thumbnail{
+    width:450px;
+    margin:10px;
+    /* padding: 0; */
+}
+h4{
+    margin: 0px
+}
+.movie-image{
+    height: 500px;
+    width: 450px;
+}
+.movie-overview{
+    height: 70px;
+    overflow-x: hidden;
+    overflow-y: auto
+}
+.movie-overview::-webkit-scrollbar{
+width: 2px; background: gray;
+}
+.movie-actions{
+    text-align: right;
+}
